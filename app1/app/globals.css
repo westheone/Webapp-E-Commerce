@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/* Global Design Tokens (Theme Variables) */
+:root {
+  --background: #09090b; 
+  --foreground: #fafafa; 
+  --card: #18181b;       
+  --border: #27272a; 
+  --button-bg: #1136f2;
+  --button-hover-bg: #0a28c1;
+  --text-main-color: #f4f4f5;  
+}
+
+
+/* Base HTML Resets & Defaults */
+@layer base {
+  html {
+    /* Ensures smooth transitions when navigating anchor points */
+    scroll-behavior: smooth;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* 4. Custom Component Styles */
+@layer components {
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+ 
+  .header {
+    background: var(--background);
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-main-color);
+  }
+  .header-box{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+    margin-right: 0.5rem;
+  }
+
+  .navbar {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 5rem;
+  }
+
+  .sidebar {
+    background: var(--card);
+    border: 5px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    width: 250px;
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .search-bar input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--text-main-color);
+    font-size: 1rem;
+  }
+
+  .search-bar input:active, .search-bar input:focus {
+    outline: none;
+    border-color: var(--button-bg);
+    box-shadow: 0 0 0 2px var(--button-bg)40;
+  }
+
+
+  .button-look {
+    background: var(--button-bg);
+    padding: 0.5rem 1rem;
+    color: var(--text-main-color);
+    border-radius: 10px;
+    font-size: medium;
+    transition: background-color 0.3s ease;
+  }
+  .button-look:hover {
+    background: var(--button-hover-bg);
+  }
+
+  .delete-button {
+    background: #ef4444;
+    padding: 0.5rem 1rem;
+    color: var(--text-main-color);
+    border-radius: 10px;
+    font-size: medium;
+    transition: background-color 0.3s ease;
+    width:auto;
+    position:relative;
+
+  }
+  .delete-button:hover {
+    background: #dc2626;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--text-main-color);
+    margin-bottom: 1rem;
+  }
+
+  .loading-text {
+    font-size: 1.25rem;
+    color: var(--text-main-color);
+    animation: pulse 1.5s infinite;
+  }
+
+
+  .picked-text{
+    color: var(--text-main-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  .picked-text:hover{
+    color: var(--button-bg);
+  }
+
+  /* grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 */
+  .grid-container {
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .admin-grid {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    
+  }
+
+  .admin-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .admin-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-main-color);
+  }
+
+  .admin-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: #080809;
+  }
+  .category-tag{
+    font-size: small;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #3b82f6;
+  }
+  .product-title{
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-main-color);
+  }
+  
+  /*.product-description{}*/
+
+  .pricing-display{
+    margin-top: 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-main-color);
+  }
+  
+  .outofstock-text{
+    display: inline-flex;
+    border-radius: 12px;
+    border: 1px solid #f87171;
+    background-color: #f8717110;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #f87171;
+  }
+
+  .lowstock-text{
+    display: inline-flex;
+    border-radius: 12px;
+    border: 1px solid #f59e0b;
+    background-color: #f59e0b10;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #f59e0b;
+  }
+
+  .instock-text{
+    display: inline-flex;
+    border-radius: 12px;
+    border: 1px solid #10b981;
+    background-color: #10b98110;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #10b981;
+
+  }
+
+
+} 

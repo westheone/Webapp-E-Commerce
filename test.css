@@ -1,0 +1,56 @@
+/* stylelint-disable at-rule-no-unknown */
+@import "tailwindcss";
+ rounded-md px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors
+/* Global Design Tokens (Theme Variables) */
+:root {
+  --background: #09090b; 
+  --foreground: #fafafa; 
+  --card: #18181b;       
+  --border: #27272a; 
+  --button-bg: #1136f2;
+  --button-hover-bg: #0a28c1;  
+}
+
+/* Base HTML Resets & Defaults */
+@layer base {
+  html {
+    /* Ensures smooth transitions when navigating anchor points */
+    scroll-behavior: smooth;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* 4. Custom Utility Classes (Optional Component Extractions) */
+@layer components {
+  .button-look {
+    background: var(--button-bg);
+    padding-left: 4px;
+    padding-right: 4px;
+    color: white;
+    border-radius: medium;
+    font-size: medium;
+    transition: background-color 0.3s ease;
+  }
+  .button-look:hover {
+    background: var(--button-hover-bg);
+  }
+  
+  .product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: medium;
+    padding: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+}
